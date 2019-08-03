@@ -93,23 +93,23 @@ button.pack()
 
 #Text控件
 #height表示的是显示的行数
-text = tkinter.Text(win, width=30, height=10)
-text.pack()
-str = "希，望，一，切，顺，利！"
-text.insert(tkinter.INSERT, str)
-
-#创建菜单
-menubar = tkinter.Menu(win)
-win.config(menu=menubar)
-menu1 = tkinter.Menu(menubar, tearoff=False)
-#给菜单选项添加内容
-for item in ['python','c','java','quit']:
-    if item == 'quit':
-        menu1.add_separator()
-        menu1.add_command(label=item, command=win.quit)
-    else:
-        menu1.add_command(label=item, command=func)
-menu1.add_cascade(label='语言', menu=menu1)
+# text = tkinter.Text(win, width=30, height=10)
+# text.pack()
+# str = "希，望，一，切，顺，利！"
+# text.insert(tkinter.INSERT, str)
+#
+# #创建菜单
+# menubar = tkinter.Menu(win)
+# win.config(menu=menubar)
+# menu1 = tkinter.Menu(menubar, tearoff=False)
+# #给菜单选项添加内容
+# for item in ['python','c','java','quit']:
+#     if item == 'quit':
+#         menu1.add_separator()
+#         menu1.add_command(label=item, command=win.quit)
+#     else:
+#         menu1.add_command(label=item, command=func)
+# menu1.add_cascade(label='语言', menu=menu1)
 
 
 
