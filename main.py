@@ -20,6 +20,7 @@ __mtime__ = '2019/8/1'
                ┗┻┛ ┗┻┛
 """
 import tkinter
+import modbus
 global num
 num = 0
 def func():
@@ -91,13 +92,13 @@ button = tkinter.Button(win, text = "按钮", command=showinfo)
 button.pack()
 
 
-#Text控件
-#height表示的是显示的行数
-# text = tkinter.Text(win, width=30, height=10)
-# text.pack()
-# str = "希，望，一，切，顺，利！"
-# text.insert(tkinter.INSERT, str)
-#
+# Text控件
+# height表示的是显示的行数
+text = tkinter.Text(win, width=30, height=10)
+text.pack()
+str = "希，望，一，切，顺，利！"
+text.insert(tkinter.INSERT, str)
+
 # #创建菜单
 # menubar = tkinter.Menu(win)
 # win.config(menu=menubar)
@@ -114,3 +115,4 @@ button.pack()
 
 
 win.mainloop()
+
