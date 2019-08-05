@@ -1,5 +1,23 @@
 #:kivy 1.0.9
 
+Button:
+    id:btn1
+    size_hint: None, None
+    size: 100, 44
+    text: 'press me'
+    on_press: print("ouch! More gently please")
+    on_release: print("ahhh")
+    on_state:
+        print("my current state is {}".format(self.state))
+
+
+<LoginScreen>:  # every class in your app can be represented by a rule like
+                # this in the kv file
+    GridLayout: # this is how you add your widget/layout to the parent
+                # (note the indentation).
+        rows: 2
+
+
 <PongBall>:
     size: 50, 50
     canvas:
