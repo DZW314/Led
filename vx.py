@@ -42,7 +42,7 @@ class HelloFrame(wx.Frame):
         #create a menu bar
         self.makeMenuBar()
 
-        self.makeNoteBook()
+        # self.makeNoteBook()
 
         openBn = wx.Button(pnl, label="Open", pos=(10, 50), size=(50, 24))
 
@@ -50,8 +50,8 @@ class HelloFrame(wx.Frame):
         self.CreateStatusBar()
         self.SetStatusText("Welcome to wxPython!")
 
-    def makeNoteBook(self):
-        mainWindow = wx.Notebook()
+    # def makeNoteBook(self):
+    #     mainWindow = wx.Notebook()
         
 
 
