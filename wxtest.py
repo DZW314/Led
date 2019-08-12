@@ -22,16 +22,16 @@ class MyFrame(wx.Frame):
         print("\nGet Panel: %s" % repr(pp))
 
         # create icon
-        icon_path = os.path.abspath("./favicon.ico")
-        icon = wx.Icon(icon_path, type=wx.BITMAP_TYPE_ICON)
+        icon_path = os.path.abspath("./favicon.png")
+        icon = wx.Icon(icon_path, type=wx.BITMAP_TYPE_PNG)
         self.SetIcon(icon)
 
         # create bitmap
-        img_path = os.path.abspath("./IMG.jpg")
-        bitmap = wx.Bitmap(img_path, type=wx.BITMAP_TYPE_JPEG)
-        self.bitmap = wx.StaticBitmap(self.panel, bitmap=bitmap)
+        # img_path = os.path.abspath("./IMG.jpg")
+        # bitmap = wx.Bitmap(img_path, type=wx.BITMAP_TYPE_JPEG)
+        # self.bitmap = wx.StaticBitmap(self.panel, bitmap=bitmap)
 
-        # create buttons
+        # create buttons (The buttons are not display on the screen after it creates bitmap.)
         ok_btn = wx.Button(self.panel, wx.ID_OK)
         cancel_btn = wx.Button(self.panel, wx.ID_CANCEL, pos=(100, 3))
 
@@ -74,6 +74,35 @@ class MyFrame(wx.Frame):
         print("\nGet the Frame from the App:")
         frame = app1.GetTopWindow()
         print("%s" % repr(frame))
+
+    def SetClipboardText(text):
+        """Put text in the clipboard
+        @param text: string
+        """
+        data_o = wx.TextDataObject()
+        data_o.SetText()
+        if wx.TheClipboard.IsOpened() or wx.TheClipboard.Open():
+            wx.TheClipboard.SetData(data_o)
+            wx.TheClipboard.Close()
+
+    def GetClipboardText():
+        """Get text from the clipboard
+        @return: string
+        """
+        text_obj = wx.TextDataObject()
+        rtext = ""
+        if wx.TheClipboard.IsOpened() or wx.TheClipboard.Open():
+            if wx.TheClipboard.GetData(text_obj):
+                rtext = text_obj.GetText()
+            wx.TheClipboard.Close()
+        return rtext
+
+class FileAndTextDropTarget(wx.PyDropTarget):
+    """Drop target capable of accepting dropped
+    file and text
+    """
+    def __init__(self,file_callback,text_callback):
+        assert callable
 
 
 if __name__ == "__main__":
